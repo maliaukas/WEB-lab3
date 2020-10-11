@@ -18,7 +18,7 @@ public abstract class MultipleElements implements Element {
         children.add(el);
     }
 
-    public void remove(Element el){
+    public void remove(Element el) {
         children.remove(el);
     }
 

@@ -3,15 +3,16 @@ package model;
 import java.util.regex.Pattern;
 
 public class PunctuationMark extends SingleElement {
-    private String mark;
-
     static Pattern pattern = Pattern.compile(
-            "\\.\\.\\.|" +                  //...
-            "!!!|" +                        //!!!
-            "\\?\\?\\?|\\?!|" +             //???
-            "!\\.\\.|" +                    //!..
-            "\\?\\.\\.|" +                  //?..
-            "[!\"\\#$%&()*+,\\-./:;<=>?@\\[\\\\\\]^_‘{|}~]");
+            "\\.\\.\\.|" +          //...
+                    "!!!|" +        //!!!
+                    "\\?\\?\\?|" +  //???
+                    "\\?!|" +       //?!
+                    "!\\.\\.|" +    //!..
+                    "\\?\\.\\.|" +  //?..
+                    "[!\"\\#$%&()*+,\\-./:;<=>?@\\[\\\\\\]^_‘{|}~]");
+
+    private final String mark;
 
     public PunctuationMark(String mark) {
         this.mark = mark;

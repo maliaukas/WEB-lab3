@@ -21,15 +21,10 @@ public class Runner {
             return;
         }
 
-        //System.out.println(text);
+        // System.out.println(text);
 
         List<Element> lst = parser.parse(text);
         Text t = new Text(lst);
-//        for (Element el : lst) {
-//            System.out.println(el.toString());
-//            System.out.println();
-//        }
-
         System.out.println(t);
     }
 }

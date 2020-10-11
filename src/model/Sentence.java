@@ -5,17 +5,14 @@ import java.util.regex.Pattern;
 
 public class Sentence extends MultipleElements {
     static Pattern pattern = Pattern.compile("(.)+?" +
-            "(\\.|!|\\?|" +                //. or ! or ?
-            "\\.\\.\\.|" +                 //...
+            "(\\.\\.\\.|" +                //...
             "!!!|" +                       //!!!
-            "\\?\\?\\?|\\?!|" +            //???
+            "\\?\\?\\?|" +                 //???
+            "\\?!|" +                      //?!
             "!\\.\\.|" +                   //!..
-            "\\?\\.\\.)");                 //?..
+            "\\?\\.\\.|" +                 //?..
+            "\\.|!|\\?)");                 //. or ! or ?);
     private String sentence;
-
-
-    // [а-яА-Яa-zA-Z0-9\s"\#$%&'()*+,/:;<=>@\[\\\]^_‘{|}~'`\-]
-
 
     public Sentence(String s) {
         super();

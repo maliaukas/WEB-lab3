@@ -44,7 +44,6 @@ public class TextParser extends BaseParser {
             res.add(new Sentence(left.substring(sentMatcher.start(), sentMatcher.end())));
         }
 
-
         if (next != null) return next.parse(res);
         else return res;
     }

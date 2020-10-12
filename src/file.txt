@@ -7,4 +7,4 @@ Another sentence! And - one more...
 
 <code> _CODE </code>
 Am I a sentence? Definitely yes!!!
-I'm not a code! А я - предложение на русском языке (и во мне даже есть скобочки).
+I'm not a code! А я - очень длинное предложение на русском языке (и во мне даже есть скобочки). Один. Два два.

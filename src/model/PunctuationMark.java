@@ -28,4 +28,9 @@ public class PunctuationMark extends SingleElement {
                 "mark='" + mark + '\'' +
                 '}';
     }
+
+    @Override
+    public int count() {
+        return 0;
+    }
 }

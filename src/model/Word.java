@@ -14,6 +14,10 @@ public class Word extends SingleElement {
         return pattern;
     }
 
+    public String getWord() {
+        return word;
+    }
+
     @Override
     public String toString() {
         return "Word{" +

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class Sentence extends MultipleElements {
+
     static Pattern pattern = Pattern.compile("(.)+?" +
             "(\\.\\.\\.|" +                //...
             "!!!|" +                       //!!!
@@ -32,7 +33,7 @@ public class Sentence extends MultipleElements {
         return "Sentence{" +
                 "sentence='" + sentence + '\'' +
                 ", children=" + children +
-                '}';
+                "}\n\n";
     }
 
     public String getSentence() {

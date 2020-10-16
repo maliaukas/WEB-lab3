@@ -26,10 +26,10 @@ public class TextUtils {
                 sentences.add(((Sentence) element));
             }
         }
-        sentences.sort(Comparator.comparingInt(MultipleElements::count));
 
+        sentences.sort(Comparator.comparingInt(MultipleElements::count));
         for (Sentence s : sentences) {
-            System.out.println(s.getSentence());
+            System.out.println("\t" + s.getSentence());
         }
     }
 
@@ -41,7 +41,7 @@ public class TextUtils {
      * @return отсортированный список слов
      */
 
-    public static ArrayList<Word> getWordsSortedByVowelsCount(Text text) {
+    public static ArrayList<Word> getWordsSortedByVowelsPercent(Text text) {
         ArrayList<Word> words = new ArrayList<>();
         for (Element element : text.getElements()) {
             if (element.getClass() == Sentence.class) {
@@ -53,19 +53,14 @@ public class TextUtils {
         }
 
         words.sort(Comparator.comparing(TextUtils::getVowelsPercent));
-
-        for (Word w : words) {
-            System.out.println(w.getWord() + " " + getVowelsPercent(w));
-        }
-
         return words;
     }
 
     /**
-     * Метод, вычисляющий процентное соотношение кол-ва гласных букв в слове к длине слова
+     * Метод, вычисляющий отношение кол-ва гласных букв в слове к длине слова
      *
      * @param w слово
-     * @return процентное соотношение (кол-во гласных) / (общее кол-во букв)
+     * @return отношение (кол-во гласных) / (общее кол-во букв)
      */
 
     private static double getVowelsPercent(Word w) {

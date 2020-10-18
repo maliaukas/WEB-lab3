@@ -17,8 +17,13 @@ public class Code extends SingleElement {
 
     @Override
     public String toString() {
-        return "Code{" +
+        return "\n\nCode{" +
                 "code='" + code + '\'' +
                 '}';
+    }
+
+    @Override
+    public String getValue() {
+        return "\n" + code + "\n";
     }
 }

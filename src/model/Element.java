@@ -8,4 +8,6 @@ public interface Element {
     static Pattern getPattern() {
         return null;
     }
+
+    String getValue();
 }

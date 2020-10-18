@@ -34,4 +34,13 @@ public abstract class MultipleElements implements Element {
         }
         return count;
     }
+
+    @Override
+    public String getValue() {
+        StringBuilder builder = new StringBuilder();
+        for (Element e : children) {
+            builder.append(e.getValue());
+        }
+        return builder.toString();
+    }
 }

@@ -29,7 +29,7 @@ public class TextUtils {
 
         sentences.sort(Comparator.comparingInt(MultipleElements::count));
         for (Sentence s : sentences) {
-            System.out.println("\t" + s.getSentence());
+            System.out.println("\t" + s.getValue());
         }
     }
 
@@ -64,7 +64,7 @@ public class TextUtils {
      */
 
     private static double getVowelsPercent(Word w) {
-        String word = w.getWord();
+        String word = w.getValue();
         return 1.0 * word.chars().filter
                 (ch -> vowels.contains(Character.toLowerCase((char) ch)))
                 .count() / word.length();

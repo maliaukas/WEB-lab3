@@ -10,7 +10,7 @@ public class PunctuationMark extends SingleElement {
                     "\\?!|" +       //?!
                     "!\\.\\.|" +    //!..
                     "\\?\\.\\.|" +  //?..
-                    "[!\"\\#$%&()*+,\\-./:;<=>?@\\[\\\\\\]^_‘{|}~]");
+                    "[ !\"\\#$%&()*+,\\-./:;<=>?@\\[\\\\\\]^_‘{|}~]");
 
     private final String mark;
 
@@ -32,5 +32,10 @@ public class PunctuationMark extends SingleElement {
     @Override
     public int count() {
         return 0;
+    }
+
+    @Override
+    public String getValue() {
+        return mark;
     }
 }

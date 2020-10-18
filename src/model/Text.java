@@ -19,14 +19,6 @@ public class Text extends MultipleElements {
         return pattern;
     }
 
-    public String getText() {
-        StringBuilder builder = new StringBuilder();
-        for (Element el : children) {
-            //TODO implement
-        }
-        return builder.toString();
-    }
-
     @Override
     public String toString() {
         return "Text{" +

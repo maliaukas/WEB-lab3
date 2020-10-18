@@ -1,6 +1,5 @@
 package model;
 
-import java.util.List;
 import java.util.regex.Pattern;
 
 public class Sentence extends MultipleElements {
@@ -13,30 +12,27 @@ public class Sentence extends MultipleElements {
             "!\\.\\.|" +                   //!..
             "\\?\\.\\.|" +                 //?..
             "\\.|!|\\?)");                 //. or ! or ?);
-    private String sentence;
+
+    private final String sentence;
 
     public Sentence(String s) {
         super();
-        sentence = s.trim();
-    }
-
-    public Sentence(List<Element> lst) {
-        super(lst);
+        sentence = " " + s.trim();
     }
 
     public static Pattern getPattern() {
         return pattern;
     }
 
-    @Override
-    public String toString() {
-        return "Sentence{" +
-                "sentence='" + sentence + '\'' +
-                ", children=" + children +
-                "}\n\n";
-    }
-
     public String getSentence() {
         return sentence;
+    }
+
+    @Override
+    public String toString() {
+        return "\n\nSentence{" +
+                "sentence='" + sentence + '\'' +
+                ", children=" + children +
+                "}";
     }
 }

@@ -19,7 +19,9 @@ public class Runner {
 
     public static Locale askLocale() {
         System.out.println("""
-                Пожалуйста, выберите язык / Please select the language / Калі ласка, выберыце мову :
+                Пожалуйста, выберите язык /
+                Please select the language /
+                Калі ласка, выберыце мову :
                 1. Русский
                 2. English
                 3. Беларуская""");
@@ -60,8 +62,12 @@ public class Runner {
 
         List<Element> lst = parser.parse(toParse);
         Text text = new Text(lst);
+
         System.out.println("\n----- " + resourceBundle.getString("text.parsing.result"));
         System.out.println(text);
+
+        System.out.println("\n----- " + resourceBundle.getString("rebuilt.text"));
+        System.out.println(text.getValue());
 
         System.out.println("\n----- " + resourceBundle.getString("sentences.sorted"));
         TextUtils.printSentencesSortedByWordCount(text);
@@ -70,7 +76,7 @@ public class Runner {
 
         System.out.println("\n----- " + resourceBundle.getString("words.sorted"));
         for (Word w : words) {
-            System.out.println("\t" + w.getWord());
+            System.out.println("\t" + w.getValue());
         }
     }
 }

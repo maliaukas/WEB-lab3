@@ -14,7 +14,8 @@ public class Word extends SingleElement {
         return pattern;
     }
 
-    public String getWord() {
+    @Override
+    public String getValue() {
         return word;
     }
 

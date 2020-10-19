@@ -6,6 +6,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 
+/**
+ * Класс, выполняющий необходимые преобразования над текстом
+ *
+ * @author Александра Малявко
+ * @version 2020
+ */
+
 public class TextUtils {
 
     private static final ArrayList<Character> vowels = new ArrayList<>(

@@ -9,11 +9,23 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Класс-парсер текста
+ *
+ * @author Александра Малявко
+ * @version 2020
+ */
+
 public class TextParser extends BaseParser {
     public TextParser(Parser next) {
         this.next = next;
     }
 
+    /**
+     * Метод, разбирающий входной текст на предложения и блоки кода
+     * @param toParse исходный текст
+     * @return список элементов, состоящий из предложений и блоков кода
+     */
     public List<Element> parse(String toParse) {
         Pattern sentPattern = Sentence.getPattern();
 

@@ -9,6 +9,13 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Класс-парсер предложения
+ *
+ * @author Александра Малявко
+ * @version 2020
+ */
+
 public class SentenceParser extends BaseParser {
 
     public SentenceParser() {
@@ -19,6 +26,12 @@ public class SentenceParser extends BaseParser {
         this.next = next;
     }
 
+
+    /**
+     * Метод, разбирающий предложение на слова и знаки препинания
+     * @param l список предложений
+     * @return разобранный список предложений
+     */
     @Override
     public List<Element> parse(List<Element> l) {
         Pattern sentToken = Pattern.compile("("

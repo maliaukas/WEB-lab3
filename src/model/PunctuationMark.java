@@ -2,6 +2,13 @@ package model;
 
 import java.util.regex.Pattern;
 
+/**
+ * Класс Знак препинания
+ *
+ * @author Александра Малявко
+ * @version 2020
+ */
+
 public class PunctuationMark extends SingleElement {
     static Pattern pattern = Pattern.compile(
             "\\.\\.\\.|" +          //...

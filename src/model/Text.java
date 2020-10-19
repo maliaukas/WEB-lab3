@@ -4,7 +4,10 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 /**
- * Текст, полученный в результате работы цепочки парсеров
+ * Класс Текст. Его дочерние элементы - предложения и блоки кода.
+ *
+ * @author Александра Малявко
+ * @version 2020
  */
 
 public class Text extends MultipleElements {

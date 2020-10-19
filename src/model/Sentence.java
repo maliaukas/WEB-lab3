@@ -2,6 +2,13 @@ package model;
 
 import java.util.regex.Pattern;
 
+/**
+ * Класс Предложение. Его дочерними элементами могут быть слова и знак препинания.
+ *
+ * @author Александра Малявко
+ * @version 2020
+ */
+
 public class Sentence extends MultipleElements {
 
     static Pattern pattern = Pattern.compile("(.)+?" +

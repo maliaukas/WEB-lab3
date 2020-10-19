@@ -2,6 +2,13 @@ package model;
 
 import java.util.regex.Pattern;
 
+/**
+ * Класс Код
+ *
+ * @author Александра Малявко
+ * @version 2020
+ */
+
 public class Code extends SingleElement {
     static Pattern pattern = Pattern.compile("<code>.+?</code>");
 

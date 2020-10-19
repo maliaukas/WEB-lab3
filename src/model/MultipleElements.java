@@ -3,6 +3,14 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Абстрактный класс MultipleElements, представляющий собой элемент,
+ * который хранит в себе дочерние элементы
+ *
+ * @author Александра Малявко
+ * @version 2020
+ */
+
 public abstract class MultipleElements implements Element {
     List<Element> children;
 

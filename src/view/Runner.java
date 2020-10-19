@@ -15,8 +15,19 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.*;
 
+/**
+ * Класс Runner, демонстрирующий работу с проектом.
+ *
+ * @author Александра Малявко
+ * @version 2020
+ */
+
 public class Runner {
 
+    /**
+     * Метод, запрашивающий у пользователя язык приложения
+     * @return соответствующую локаль
+     */
     public static Locale askLocale() {
         System.out.println("""
                 Пожалуйста, выберите язык /

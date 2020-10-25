@@ -4,15 +4,13 @@ import controller.FileReader;
 import controller.SentenceParser;
 import controller.TextParser;
 import controller.TextUtils;
+import controller.exception.FileReaderException;
 import model.Element;
 import model.Text;
 import model.Word;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLClassLoader;
 import java.util.*;
 
 /**
@@ -24,8 +22,11 @@ import java.util.*;
 
 public class Runner {
 
+    private static final Logger logger = LogManager.getLogger(Runner.class.getName());
+
     /**
      * Метод, запрашивающий у пользователя язык приложения
+     *
      * @return соответствующую локаль
      */
     public static Locale askLocale() {
@@ -47,47 +48,55 @@ public class Runner {
     }
 
     public static void main(String[] args) {
-        File file = new File("D:\\WEB\\WEB-lab3\\src\\resources");
-        URL[] urls;
-        try {
-            urls = new URL[]{file.toURI().toURL()};
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-            return;
-        }
-
-        ClassLoader loader = new URLClassLoader(urls);
+        logger.info("Старт приложения");
+        logger.debug("Запрашиваем у пользователя язык приложения");
         Locale locale = askLocale();
+        logger.debug("Пользователь выбрал локаль " + locale.toString());
+        logger.debug("Получаем соответствующий выбранному языку ResourceBundle");
         ResourceBundle resourceBundle =
-                ResourceBundle.getBundle("lab3", locale, loader);
+                ResourceBundle.getBundle("resources.lab3", locale);
 
-        SentenceParser sentenceParser = new SentenceParser();
-        TextParser parser = new TextParser(sentenceParser);
         String toParse;
         try {
+            logger.debug("Пытаемся прочитать текст из файла");
             toParse = FileReader.read("src\\file.txt");
-        } catch (IOException exception) {
-            System.err.print(exception.getLocalizedMessage());
+        } catch (FileReaderException exception) {
+            logger.error("Не получилось прочитать текст из файла");
+            System.err.print(exception.getMessage());
             return;
         }
+        logger.debug("Получилось прочитать текст из файла");
 
+        logger.debug("Создаем экземпляр класса SentenceParser");
+        SentenceParser sentenceParser = new SentenceParser();
+        logger.debug("Создаем экземпляр класса TextParser");
+        TextParser parser = new TextParser(sentenceParser);
+
+        logger.debug("Парсим полученный из файла текст");
         List<Element> lst = parser.parse(toParse);
+        logger.debug("На основе распаршенных элементов создаем экземпляр класса Text");
         Text text = new Text(lst);
 
+        logger.debug("Выводим полученный экземпляр класса Text");
         System.out.println("\n----- " + resourceBundle.getString("text.parsing.result"));
         System.out.println(text);
 
+        logger.debug("Выводим восстановленный текст");
         System.out.println("\n----- " + resourceBundle.getString("rebuilt.text"));
         System.out.println(text.getValue());
 
+        logger.debug("Выводим отсортированные предложения");
         System.out.println("\n----- " + resourceBundle.getString("sentences.sorted"));
         TextUtils.printSentencesSortedByWordCount(text);
 
+        logger.debug("Сортируем слова");
         ArrayList<Word> words = TextUtils.getWordsSortedByVowelsPercent(text);
 
+        logger.debug("Выводим отсортированные слова");
         System.out.println("\n----- " + resourceBundle.getString("words.sorted"));
         for (Word w : words) {
             System.out.println("\t" + w.getValue());
         }
+        logger.info("Завершение приложения");
     }
 }
